@@ -101,7 +101,7 @@ $haclgNamespaceIndex = 102;
 $haclgCombineMode = HACL_COMBINE_EXTEND;
 
 # Preload no more than 1000 rules for current user.
-$iaclGrantLimit = 1000;
+$iaclPreloadLimit = 1000;
 
 # See also $wgWhitelistRead - IntraACL opens whitelisted pages for reading
 
