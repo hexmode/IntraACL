@@ -100,6 +100,9 @@ $haclgNamespaceIndex = 102;
 #   I.e. page rights override category rights, which override namespace rights.
 $haclgCombineMode = HACL_COMBINE_EXTEND;
 
+# Preload no more than 1000 rules for current user.
+$iaclGrantLimit = 1000;
+
 # See also $wgWhitelistRead - IntraACL opens whitelisted pages for reading
 
 // load global functions
