@@ -561,7 +561,9 @@ class IntraACLSpecial extends SpecialPage
         $wgOut->addHTML($html);
     }
 
-    /* "Real" ACL list, loaded using AJAX */
+    /**
+     * "Real" ACL list, loaded using AJAX
+     */
     static function haclAcllist($t, $n, $offset = 0, $limit = 10)
     {
         global $wgScript, $wgTitle, $haclgHaloScriptPath, $haclgContLang, $wgUser;
