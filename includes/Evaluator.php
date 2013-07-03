@@ -32,7 +32,7 @@ if (!defined('MEDIAWIKI'))
  *
  * WARNING: Now, members of "bureaucrat" and "sysop" Wiki groups (not IntraACL groups) can always do anything.
  */
-class HACLEvaluator
+class IACLEvaluator
 {
     // String with logging information
     static $mLog = "";
@@ -144,8 +144,7 @@ class HACLEvaluator
                 self::log('Article does not exist yet. Checking right to create.');
                 $actionID = IACL::ACTION_CREATE;
             }
-            elseif ($actionID == HACLLanguage::RIGHT_DELETE ||
-                $actionID == HACLLanguage::RIGHT_MOVE)
+            elseif ($actionID == IACL::ACTION_DELETE || $actionID == IACL::ACTION_MOVE)
             {
                 return array('Moving/deleting non-existing article is pointless', 1);
             }
@@ -259,7 +258,7 @@ class HACLEvaluator
         // "move page" right is a hole
         // category rights are a hole - any editor can change them
 
-        // Check for RIGHT_GRANT_PAGE inherited from namespaces and categories
+        // Check for ACTION_PROTECT_PAGES inherited from namespaces and categories
         if ($peId[0] == IACL::PE_PAGE && self::checkProtectPageRight($peId[1], $userID))
         {
             return true;
