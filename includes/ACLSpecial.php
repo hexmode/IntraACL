@@ -452,9 +452,9 @@ class IntraACLSpecial extends SpecialPage
         $aclPEName = $aclPEType = '';
         if (!empty($q['sd']))
         {
-            $aclTitle = Title::newFromText($q['sd'], HACL_NS_ACL);
-            $t = HACLEvaluator::hacl_type($aclTitle);
-            if ($aclTitle && $t != 'group')
+            $aclTitle = Title::makeTitleSafe(HACL_NS_ACL, $q['sd']);
+            $defId = IACLDefinition::nameOfPE($aclTitle);
+            if ($aclTitle && $defId[0] != IACL::PE_GROUP)
             {
                 if (($aclArticle = new Article($aclTitle)) &&
                     $aclArticle->exists())
@@ -466,7 +466,7 @@ class IntraACLSpecial extends SpecialPage
                 {
                     $aclArticle = NULL;
                 }
-                list($aclPEType, $aclPEName) = IACLDefinition::nameOfPE($aclTitle->getText());
+                list($aclPEType, $aclPEName) = $defId;
             }
         }
         /* Run template */

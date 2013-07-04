@@ -92,7 +92,7 @@ exAttach(window, 'load', function()
     ) as $msg)
         print "        '$msg': '".addslashes(wfMsgNoTrans("hacl_$msg"))."',\n"; ?>
         'NS_ACL': '<?= $wgContLang->getNsText(HACL_NS_ACL) ?>',
-        'group_prefix' : '<?= $haclgContLang->getGroupPrefix() ?>'
+        'group_prefix' : 'Group/'
     };
     var petPrefixes = {
     <?php
