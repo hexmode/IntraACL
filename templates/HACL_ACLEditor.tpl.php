@@ -100,6 +100,7 @@ exAttach(window, 'load', function()
     foreach($haclgContLang->getPetPrefixes() as $k => $v)
     {
         if ($i++) print ",";
+        $k = IACL::$typeToName[$k];
         $v = addslashes($v);
         print "'$k' : '$v'\n";
     }
