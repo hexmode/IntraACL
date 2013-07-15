@@ -458,6 +458,7 @@ function iaclfLoadExtensionSchemaUpdates($updater = NULL)
     global $egDeferCreatePermissionDenied;
     $egDeferCreatePermissionDenied = new DeferCreatePermissionDenied();
     // Reparse right definitions if needed
+    // TODO Reparse ALL right definitions after updating from old-style storage
     global $egDeferReparseSpecialPageRights;
     $egDeferReparseSpecialPageRights = new DeferReparseSpecialPageRights();
     return true;
