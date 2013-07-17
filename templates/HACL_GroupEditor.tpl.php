@@ -70,7 +70,7 @@ exAttach(window, 'load', function()
         ' edit_all edit_reg'
     ) as $msg)
         print "'$msg': '".addslashes(wfMsgNoTrans("hacl_$msg"))."',\n"; ?>
-'group_prefix' : '<?= $grpTitle ? $grpPrefix : $haclgContLang->getGroupPrefix() ?>',
+'group_prefix' : '<?= $grpTitle ? $grpPrefix : $haclgContLang->getPetPrefix(IACL::PE_GROUP) ?>',
 'NS_ACL' : '<?= $wgContLang->getNsText(HACL_NS_ACL) ?>'
     };
     GE = new HACLGroupEditor(msg, "<?= addslashes($grpName) ?>");
